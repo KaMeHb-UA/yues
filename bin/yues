@@ -1,0 +1,2 @@
+#!/bin/sh
+exec luajit /opt/yues/init.lua "$@"
