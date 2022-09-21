@@ -10,12 +10,23 @@ local function postMessage(val)
     }
 end
 
-local funcEnv = {
+local funcEnv
+
+local function loadstringWithEnv(string)
+    local func, err = loadstring(string)
+    if func ~= nil then
+        func = setfenv(func, funcEnv)
+    end
+    return func, err
+end
+
+funcEnv = setmetatable({
     gui = gui,
     JSON = JSON,
     postMessage = postMessage,
+    loadstring = loadstringWithEnv,
     __getFunction = getFunction,
-}
+}, { __index = _G })
 
 function messaging.onmessage(msg)
     if msg.type == 'CREATE' then
