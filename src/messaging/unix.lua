@@ -10,7 +10,7 @@ local outFifo = createfifowriter(arg[2])
 local messaging = {}
 
 function messaging.send(msg)
-    outFifo.write(JSON:encode(msg))
+    outFifo.write(JSON:encode(msg) .. '\n')
 end
 
 function messaging.onmessage() end
