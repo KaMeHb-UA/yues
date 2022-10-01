@@ -23,14 +23,14 @@ local function interval(time, func)
     gui.MessageLoop.postdelayedtask(time, wrapped)
 end
 
-local function read()
+function messaging.read()
     for i, line in pairs(inFifo.readLines()) do
         messaging.onmessage(JSON:decode(line))
     end
 end
 
 function gui.app.onready()
-    interval(10, read)
+    interval(10, messaging.read)
     outFifo.write(initmsg)
 end
 

@@ -25,6 +25,7 @@ funcEnv = setmetatable({
     JSON = JSON,
     postMessage = postMessage,
     loadstring = loadstringWithEnv,
+    __readMessagesSync = messaging.read,
     __getFunction = getFunction,
 }, { __index = _G })
 
