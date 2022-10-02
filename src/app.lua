@@ -26,9 +26,9 @@ funcEnv = setmetatable({
     JSON = JSON,
     postMessage = postMessage,
     loadstring = loadstringWithEnv,
+    sleep = function(sec) socket.select(nil, nil, sec) end,
     __readMessagesSync = messaging.read,
     __getFunction = getFunction,
-    sleep = function(sec) socket.select(nil, nil, sec) end,
 }, { __index = _G })
 
 function messaging.onmessage(msg)
