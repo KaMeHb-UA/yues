@@ -2,6 +2,7 @@ local gui = require 'yue.gui'
 local JSON = require 'JSON'
 local messaging = require 'messaging'
 local createFunction, getFunction, removeFunction = require 'function-creator' ()
+local socket = require 'socket'
 
 local function postMessage(val)
     messaging.send{
@@ -27,6 +28,7 @@ funcEnv = setmetatable({
     loadstring = loadstringWithEnv,
     __readMessagesSync = messaging.read,
     __getFunction = getFunction,
+    sleep = function(sec) socket.select(nil, nil, sec) end,
 }, { __index = _G })
 
 function messaging.onmessage(msg)
