@@ -58,7 +58,7 @@ The idea of such server is allowance of executing arbitrary code on server side 
 
 ##### Client-sent messages (`infifo`)
 
-- `CREATE` <blockquote>Creates the function and returns it's id</blockquote>  
+- `CREATE` <blockquote>Creates the function and returns it's id. See **[Function scope](#function-scope)** section.</blockquote>  
 `id` — `string`, the id of the call, pseudorandom string used to properly corellate and get back result of the invocation. It's recommended to use [UUIDv4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random))  
 `args` — `Array<string>`, list of argument names to be passed to the function at its invocation  
 `body` — `string`, the body of the function written in [Lua 5.1](https://www.lua.org/manual/5.1/)  
@@ -72,8 +72,24 @@ The idea of such server is allowance of executing arbitrary code on server side 
 `id` — `string`, the id of the call, pseudorandom string used to properly corellate and get back result of the invocation. It's recommended to use [UUIDv4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random))  
 `ref` — `string`, the id of the function to be removed  
 
-- `IIFE` <blockquote>Creates function, invokes it, returns the result and removes the function immidiately</blockquote>  
+- `IIFE` <blockquote>Creates function, invokes it, returns the result and removes the function immidiately. See **[Function scope](#function-scope)** section.</blockquote>  
 `id` — `string`, the id of the call, pseudorandom string used to properly corellate and get back result of the invocation. It's recommended to use [UUIDv4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random))  
 `argNames` — `Array<string>`, list of argument names to be passed to the function at its invocation  
 `body` — `string`, the body of the function written in [Lua 5.1](https://www.lua.org/manual/5.1/)  
 `args` — `Array<any>`, the arguments passed to function call  
+
+#### Function scope
+
+There are some new globals available:
+
+- `gui` — object that contains all the stuff from Yue lib. The same as `require('yue.gui')`
+
+- `JSON` — JSON reader/encoder (see `JSON.lua` in **[Bundled dependencies](#bundled-dependencies)** section)
+
+- `postMessage` — method that sends `POSTMESSAGE` with a value passed to the method. Usable for sending event messages. <blockquote>Signature: `postMessage(value: any): void`</blockquote>  
+
+- `sleep` — method that temporarily stops the invocation for specified period of time in seconds. <blockquote>Signature: `sleep(seconds: number): void`</blockquote>  
+
+- `__readMessagesSync` — method that synchronously reads new messages from `infifo` and invokes `messaging.onmessage` for each new message. <blockquote>Signature: `__readMessagesSync(): void`</blockquote>  
+
+- `__getFunction` — method that returns a function that was previously created with a `CREATE` call by specified id. <blockquote>Signature: `__getFunction(ref: string): (...args: any[]) => any`</blockquote>  
