@@ -3,6 +3,10 @@
 While you're reading this text we're suffering from russia's bombs. Please help us to stand against russia's invasion and prevent World War III. It's pretty easy with **[UNITED24 fundraising platform](https://u24.gov.ua/)**. Thank you!
 
 ## YueS (Yue library Server)
+[![License](https://img.shields.io/github/license/KaMeHb-UA/yues?logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAyNCAyNCIgc3Ryb2tlPSIjRkZENzAwIj48cGF0aCBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIgZD0iTTMgNmwzIDFtMCAwbC0zIDlhNS4wMDIgNS4wMDIgMCAwMDYuMDAxIDBNNiA3bDMgOU02IDdsNi0ybTYgMmwzLTFtLTMgMWwtMyA5YTUuMDAyIDUuMDAyIDAgMDA2LjAwMSAwTTE4IDdsMyA5bS0zLTlsLTYtMm0wLTJ2Mm0wIDE2VjVtMCAxNkg5bTMgMGgzIi8%2BPC9zdmc%2BCg%3D%3D&style=flat-square)](https://github.com/KaMeHb-UA/yues/blob/master/LICENSE)
+[![Runtime](https://img.shields.io/badge/Runtime-LuaJIT-4162bf?logo=lua&logoColor=2C2D72&style=flat-square)](https://luajit.org/)
+[![AUR publish](https://img.shields.io/github/workflow/status/KaMeHb-UA/yues/aur-publish?style=flat-square&label=AUR%20publish&logo=github)](https://github.com/KaMeHb-UA/yues/actions/workflows/aur.yml)
+[![AUR version](https://img.shields.io/aur/version/yues?style=flat-square&label=AUR%20version&logo=archlinux)](https://aur.archlinux.org/packages/yues)
 
 This project aims to provide the power of [Yue](https://libyue.com/) for any language/framework without need in modification of runtime core sources.  
 Written in [Lua 5.1](https://www.lua.org/manual/5.1/) with [LuaJIT](https://luajit.org/luajit.html) as a runtime core.  
